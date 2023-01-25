@@ -1,4 +1,12 @@
 import Building from './5-building';
+
+
+/**
+ * Define Class
+ *
+ * @class SkyHighBuilding
+ */
+
 class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
     super(sqft);
