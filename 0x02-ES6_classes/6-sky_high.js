@@ -1,15 +1,20 @@
-import { signUpUser } from './4-user-promise';
-import { uploadPhoto } from './5-photo-reject';
+import Building from './5-building';
 
-export default async function handleProfileSignup(firstName, lastName, fileName) {
-  const user = await signUpUser(firstName, lastName).then((data) => ({
-    status: 'fulfilled',
-    value: data,
-  }));
+export default class SkyHighBuilding extends Building {
+  constructor(sqft, floors) {
+    super(sqft);
+    this._floors = floors;
+  }
 
-  const photUpload = await uploadPhoto(fileName).catch((error) => ({
-    status: 'rejected',
-    value: error.toString(),
-  }));
-  return Promise.resolve([user, photUpload]);
+  get sqft() {
+    return this._sqft;
+  }
+
+  get floors() {
+    return this._floors;
+  }
+
+  evacuationWarningMessage() {
+    return `Evacuate slowly the ${this.floors} floors`;
+  }
 }
