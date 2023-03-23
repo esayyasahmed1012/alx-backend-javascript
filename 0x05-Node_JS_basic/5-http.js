@@ -5,7 +5,9 @@ const PORT = 1245;
 const HOST = 'localhost';
 const app = http.createServer();
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
-
+/**
+ * counts the studnets in a csv data file.
+ */
 
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
